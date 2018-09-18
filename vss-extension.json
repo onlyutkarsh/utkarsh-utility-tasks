@@ -1,0 +1,77 @@
+{
+	"manifestVersion": 1,
+	"id": "utkarsh-utility-tasks",
+	"name": "Utkarsh Utility Tasks",
+	"publisher": "onlyutkarsh",
+	"version": "0.0.0",
+	"public": false,
+	"description": "Utility tasks for Azure DevOps - Tasks include generating strong secrets, publishing secrets in bulk to Azure key vault",
+	"categories": [
+		"Build and release"
+	],
+	"Tags": [
+		"Azure DevOps",
+		"Azure Pipelines",
+		"Release",
+		"DevOps",
+		"Artifacts",
+		"Secrets",
+		"Build",
+		"Azure Keyvault",
+		"Keyvault",
+		"Azure",
+		"Password"
+	],
+	"targets": [
+		{
+			"id": "Microsoft.VisualStudio.Services"
+		}
+	],
+	"demands": [
+		"contribution/ms.vss-releaseartifact.artifact-types"
+	],
+	"icons": {
+		"default": "images/logo128.png",
+		"large": "images/logo512.png"
+	},
+	"branding": {
+		"color": "#3B3E43",
+		"theme": "dark"
+	},
+	"content": {
+		"details": {
+			"path": "readme.md"
+		}
+	},
+	"files": [
+		{
+			"path": "tasks"
+		},
+		{
+			"path": "images",
+			"addressable": "true"
+		}
+	],
+	"contributions": [
+		{
+			"id": "secrets-for-strings-task",
+			"type": "ms.vss-distributed-task.task",
+			"targets": [
+				"ms.vss-distributed-task.tasks"
+			],
+			"properties": {
+				"name": "tasks/secrets-for-strings"
+			}
+		},
+		{
+			"id": "publish-secrets-to-kv-task",
+			"type": "ms.vss-distributed-task.task",
+			"targets": [
+				"ms.vss-distributed-task.tasks"
+			],
+			"properties": {
+				"name": "tasks/publish-secrets-to-kv"
+			}
+		}
+	]
+}

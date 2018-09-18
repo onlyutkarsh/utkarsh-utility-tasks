@@ -1,0 +1,19 @@
+{
+  "name": "generate-secret-variables",
+  "version": "0.0.0",
+  "description": "download artifact task",
+  "main": "index.js",
+  "scripts": {
+    "clean-task": "npm dedupe && npm prune --production"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "generate-password": "^1.4.0",
+    "vsts-task-lib": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^10.9.4",
+    "@types/q": "^1.5.1"
+  }
+}
