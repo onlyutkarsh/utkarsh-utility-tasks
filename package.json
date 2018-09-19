@@ -9,6 +9,7 @@
     "task2": "pushd \"tasks/publish-secrets-to-kv/publish-secrets-to-kvV1\" && npm install && npm dedupe && npm prune --production && popd",
     "ready": "npm install && npm run task1 && npm run task2",
     "clean-dist": "rimraf dist",
+    "compile": "tsc && tslint --config tslint.json",
     "copy": "npm run clean-dist && copyfiles \"./tasks/**/!(*.ts|*.js.map|package-lock.json)\" dist && copyfiles vss-extension.json LICENSE *.md dist && copyfiles images/** dist"
   },
   "author": "onlyutkarsh",
