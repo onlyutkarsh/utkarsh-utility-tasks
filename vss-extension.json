@@ -38,6 +38,10 @@
 		"color": "#3B3E43",
 		"theme": "dark"
 	},
+	"repository": {
+		"type": "git",
+		"uri": "https://github.com/onlyutkarsh/utkarsh-utility-tasks"
+	},
 	"content": {
 		"details": {
 			"path": "readme.md"
