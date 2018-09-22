@@ -16,13 +16,6 @@
 		"Patch": 0
 	},
 	"instanceNameFormat": "Publish secrets to Azure Key vault",
-	"groups": [
-        {
-            "name": "advanced",
-            "displayName": "Advanced",
-            "isExpanded": false
-        }
-    ],
 	"inputs": [
 		{
 			"name": "ConnectedServiceName",
@@ -70,8 +63,7 @@
 			"helpMarkDown": "Specify the content type of secrets to assist in interpreting the secret data when it is retrieved. Usually used as a hint for interpreting the secret data. The maximum length of this field is `255` characters.",
 			"properties": {
                 "maxLength": "255"
-			},
-			"groupName": "advanced"
+			}
 		}
 	],
 	"dataSourceBindings": [
