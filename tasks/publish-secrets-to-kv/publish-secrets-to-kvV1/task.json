@@ -3,7 +3,7 @@
 	"name": "publish-secrets-to-kv",
 	"friendlyName": "Publish secrets to Azure Key vault",
 	"description": "Publish secrets to Azure Key vault in bulk and optionall add tags to each secret",
-	"helpMarkDown": "**v__VERSION__** <br/>[More Information](#)",
+	"helpMarkDown": "**v__VERSION__** <br/>[More Information](https://marketplace.visualstudio.com/items?itemName=onlyutkarsh.utkarsh-utility-tasks)",
 	"category": "Utility",
 	"visibility": [
 		"Build",
