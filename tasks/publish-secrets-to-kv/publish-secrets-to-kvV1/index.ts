@@ -12,6 +12,7 @@ async function main() {
         let azureKeyVaultDnsSuffix = tl.getEndpointDataParameter(connectedService, "AzureKeyVaultDnsSuffix", true);
         let tenantId: string = tl.getEndpointAuthorizationParameter(connectedService, "tenantId", false);
         let tags = tl.getInput("tags", false) || "";
+        let contentType = tl.getInput("contentType", false) || "";
 
         let keyValueSeparator = ["="];
         let itemSeparator = ["\r", "\n", "\r\n"]; // \r, on older Macs, \n on UNIX+Linux and \r\n on Win
@@ -42,7 +43,7 @@ async function main() {
             let secretName = secretKVPair[0];
             let secretValue = secretKVPair[1];
             console.info(`Writing secret '${secretName}' to key vault`);
-            await kvClient.setSecret(keyVaultUrl, secretName, secretValue, { tags: tagsList, contentType: "Added via Utkarsh Utilities Extension" }, (err, secretBundle) => {
+            await kvClient.setSecret(keyVaultUrl, secretName, secretValue, { tags: tagsList, contentType: contentType }, (err, secretBundle) => {
                 if (err) {
                     console.info(`Error while writing '${secretName}'`);
                     throw err;

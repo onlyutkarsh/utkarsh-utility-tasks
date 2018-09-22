@@ -16,6 +16,13 @@
 		"Patch": 0
 	},
 	"instanceNameFormat": "Publish secrets to Azure Key vault",
+	"groups": [
+        {
+            "name": "advanced",
+            "displayName": "Advanced",
+            "isExpanded": false
+        }
+    ],
 	"inputs": [
 		{
 			"name": "ConnectedServiceName",
@@ -53,6 +60,18 @@
 			"defaultValue": "Build=$(Build.BuildNumber)",
 			"required": false,
 			"helpMarkDown": "List of tags to be added to each secret. Add as `tagName=tagValue` and separate each pair by newline. E.g. `Build=$(Build.BuildNumber)`. **Note**: Any existing tags will be overwritten."
+		},
+		{
+			"name": "contentType",
+			"type": "string",
+			"label": "Content Type of the secrets",
+			"defaultValue": "Added via Utkarsh Utilities Extension",
+			"required": false,
+			"helpMarkDown": "Specify the content type of secrets to assist in interpreting the secret data when it is retrieved. Usually used as a hint for interpreting the secret data. The maximum length of this field is `255` characters.",
+			"properties": {
+                "maxLength": "255"
+			},
+			"groupName": "advanced"
 		}
 	],
 	"dataSourceBindings": [
