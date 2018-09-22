@@ -1,6 +1,15 @@
-# Utkarsh Utility tasks
+# Utkarsh Utility tasks 
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/onlyutkarsh.svg?style=social&label=Follow)](https://twitter.com/onlyutkarsh)
 
 A set of utility build and release tasks to help you in your Azure Pipelines. The tasks in this extension are written in `node` and hence can be run in both Windows or Linux based agents.
+
+
+[![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/v/onlyutkarsh.utkarsh-utility-tasks.svg)](https://marketplace.visualstudio.com/items?itemName=onlyutkarsh.utkarsh-utility-tasks)
+[![Build status](https://dev.azure.com/utkarshshigihalli/opensource/_apis/build/status/utkarsh-utilities-tasks-CI)](https://dev.azure.com/utkarshshigihalli/opensource/_build/latest?definitionId=1) 
+
+
+
 
 ## Tasks
 
