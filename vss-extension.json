@@ -7,9 +7,8 @@
 	"public": false,
 	"description": "Utility tasks for Azure DevOps - Tasks include generating strong secrets, publishing secrets in bulk to Azure key vault",
 	"categories": [
-		"Build",
-		"Deploy",
-		"Utility"
+		"Azure Pipelines",
+		"Azure Repos"
 	],
 	"Tags": [
 		"Azure DevOps",
