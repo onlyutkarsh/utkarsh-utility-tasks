@@ -12,6 +12,7 @@ branches:
     tag: pr
     increment: Patch
   bugs:
+    source-branches: ['master', 'develop', 'feature', 'hotfix', 'support']
     regex: bug(s)?[/-]
     tag: useBranchName
     increment: Patch
