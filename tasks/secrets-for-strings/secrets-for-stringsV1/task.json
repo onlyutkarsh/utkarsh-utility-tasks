@@ -3,7 +3,7 @@
 	"name": "secrets-for-strings",
 	"friendlyName": "Generate secrets",
 	"description": "For each given string, generates a strong secret based on the conditions selected and makes them available through secret variables",
-	"helpMarkDown": "**v__VERSION__** <br/>[More Information](https://marketplace.visualstudio.com/items?itemName=onlyutkarsh.utkarsh-utility-tasks)",
+	"helpMarkDown": "[More Information](https://marketplace.visualstudio.com/items?itemName=onlyutkarsh.utkarsh-utility-tasks) - v#{GitVersion.MajorMinorPatch}#",
 	"category": "Utility",
 	"visibility": [
 		"Build",
