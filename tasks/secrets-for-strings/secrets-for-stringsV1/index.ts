@@ -1,5 +1,11 @@
-import * as tl from "vsts-task-lib";
+import * as tl from "azure-pipelines-task-lib";
 import * as generator from "generate-password";
+import * as sentry from "@sentry/node";
+
+sentry.init({ dsn: "https://28b58a21d5b74a0bba0e56d937dd56f9@sentry.io/1285555" });
+sentry.configureScope((scope) => {
+    scope.setTag("task", "secrets-for-strings");
+});
 
 async function main() {
     try {
@@ -51,4 +57,7 @@ async function main() {
 
 main()
     .then(() => console.info("All Done!"))
-    .catch(reason => console.error(reason));
+    .catch(reason => {
+        sentry.captureException(reason);
+        console.error(reason);
+    });

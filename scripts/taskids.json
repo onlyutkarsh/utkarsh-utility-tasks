@@ -1,0 +1,14 @@
+{
+    "tasks": [
+        {
+            "path": "tasks/publish-secrets-to-kv",
+            "id": "7d5f64bf-9ebc-4327-be65-4942e45eea23",
+            "betaId": "d4f844d1-d3bc-420f-b083-c98b1a867f1e"
+        },
+        {
+            "path": "tasks/secrets-for-strings",
+            "id": "83520739-b1e7-4f7e-83e1-ffffddc2ae8f",
+            "betaId": "4bc33327-6351-4984-ae03-7b9069821662"
+        }
+    ]
+}
