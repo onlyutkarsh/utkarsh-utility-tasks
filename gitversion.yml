@@ -4,16 +4,17 @@ mode: ContinuousDeployment
 branches:
   master:
     tag: ''
-  releases?[/-]:
-    tag: rc
-  features?[/-]:
+    increment: Patch
+  feature:
     tag: useBranchName
     increment: Patch
-  (pull|pull\-requests|pr)[/-]:
+  pull-request:
     tag: pr
-  hotfix(es)?[/-]:
-    tag: rc
-  support[/-]:
-    tag: s
-  dev(elop)?(ment)?$:
+    increment: Patch
+  bugs:
+    regex: bug(s)?[/-]
+    tag: useBranchName
+    increment: Patch
+  develop:
     tag: beta
+    increment: Minor
