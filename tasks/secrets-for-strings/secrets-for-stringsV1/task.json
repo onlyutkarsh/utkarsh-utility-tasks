@@ -9,7 +9,7 @@
 		"Build",
 		"Release"
 	],
-	"author": "onlyutkarsh",
+	"author": "Utkarsh Shigihalli",
 	"version": {
 		"Major": 1,
 		"Minor": 0,
@@ -23,7 +23,11 @@
 			"label": "List of keys/strings to generate secrets for",
 			"defaultValue": "",
 			"required": true,
-			"helpMarkDown": "Provide a list of keys/strings to generate the secrets for. Each key can be separated by `,`, `;`, `|` or a newline. The secret generated for each key will be available via a secret variable which you can use it in other tasks. E.g. Secret generated for key `azure.sqldb.password` can be accessed using $(azure.sqldb.password)"
+			"helpMarkDown": "Provide a list of keys/strings to generate the secrets for. Each key can be separated by `,`, `;`, `|` or a newline. The secret generated for each key will be available via a secret variable which you can use it in other tasks. E.g. Secret generated for key `azure.sqldb.password` can be accessed using $(azure.sqldb.password)",
+			"properties": {
+				"resizable": "true",
+				"rows": "4"
+			}
 		},
 		{
 			"name": "length",

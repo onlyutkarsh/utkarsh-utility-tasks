@@ -9,12 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sentry/node": "^4.4.1",
     "azure-keyvault": "^3.0.4",
-    "ms-rest-azure": "^2.5.7",
-    "vsts-task-lib": "^2.6.1"
+    "azure-pipelines-task-lib": "^2.7.7",
+    "ms-rest-azure": "^2.5.9",
+    "xregexp": "^4.2.0"
   },
   "devDependencies": {
-    "@types/node": "^10.9.4",
+    "@types/node": "^10.12.12",
     "@types/q": "^1.5.1"
   }
 }

@@ -1,8 +1,8 @@
 {
 	"id": "7d5f64bf-9ebc-4327-be65-4942e45eea23",
-	"name": "publish-secrets-to-kv",
+	"name": "publishsecretstokvdev",
 	"friendlyName": "Publish secrets to Azure Key vault",
-	"description": "Publish secrets to Azure Key vault in bulk and optionall add tags to each secret",
+	"description": "Publish secrets to Azure Key vault in bulk and optionally add tags to each secret",
 	"helpMarkDown": "**v__VERSION__** <br/>[More Information](https://marketplace.visualstudio.com/items?itemName=onlyutkarsh.utkarsh-utility-tasks)",
 	"category": "Utility",
 	"visibility": [
@@ -62,7 +62,7 @@
 			"required": false,
 			"helpMarkDown": "Specify the content type of secrets to assist in interpreting the secret data when it is retrieved. Usually used as a hint for interpreting the secret data. The maximum length of this field is `255` characters.",
 			"properties": {
-                "maxLength": "255"
+				"maxLength": "255"
 			}
 		}
 	],

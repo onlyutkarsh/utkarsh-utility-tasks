@@ -9,11 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "generate-password": "^1.4.0",
-    "vsts-task-lib": "^2.6.1"
+    "@sentry/node": "^4.4.1",
+    "azure-pipelines-task-lib": "^2.7.7",
+    "generate-password": "^1.4.1"
   },
   "devDependencies": {
-    "@types/node": "^10.9.4",
+    "@types/node": "^10.12.12",
     "@types/q": "^1.5.1"
   }
 }

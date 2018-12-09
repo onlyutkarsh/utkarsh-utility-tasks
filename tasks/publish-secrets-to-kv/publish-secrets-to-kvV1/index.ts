@@ -1,7 +1,13 @@
-import * as tl from "vsts-task-lib";
+import * as tl from "azure-pipelines-task-lib";
 import * as msrestazure from "ms-rest-azure";
 import * as keyvault from "azure-keyvault";
+import * as sentry from "@sentry/node";
+import * as xreg from "xregexp";
 
+sentry.init({ dsn: "https://28b58a21d5b74a0bba0e56d937dd56f9@sentry.io/1285555" });
+sentry.configureScope((scope) => {
+    scope.setTag("task", "publish-secrets-to-kv");
+});
 async function main() {
     try {
         // get the task vars
@@ -36,27 +42,25 @@ async function main() {
         let kvClient = new keyvault.KeyVaultClient(credentials);
         console.info("Done");
 
-        let namesInput = tl.getInput("secrets");
-        let names = namesInput.split(new RegExp("[" + itemSeparator.join("") + "]", "g"));
-        names.forEach(async name => {
-            let secretKVPair = name.split(new RegExp("[" + keyValueSeparator.join("") + "]", "g"));
-            let secretName = secretKVPair[0];
-            let secretValue = secretKVPair[1];
+        let namesInput = tl.getInput(`secrets`);
+
+        xreg.forEach(namesInput, xreg("^\\s*(?<key>.*?)\\s*(=\\s*(?<value>.*))?$", "gm"), async match => {
+            let secretName = (<any>match).key;
+            let secretValue = (<any>match).value;
             console.info(`Writing secret '${secretName}' to key vault`);
             await kvClient.setSecret(keyVaultUrl, secretName, secretValue, { tags: tagsList, contentType: contentType }, (err, secretBundle) => {
                 if (err) {
-                    console.info(`Error while writing '${secretName}'`);
-                    throw err;
+                    tl.warning(`Error while writing '${secretName}'`);
                 }
                 else {
                     console.info(`Successfully set the secret for '${secretName}'`);
                 }
             });
         });
-
-        console.log();
+        console.info("All done");
     }
     catch (error) {
+        sentry.captureException(error);
         console.error("Error occurred", error);
         tl.error(error);
         tl.setResult(tl.TaskResult.Failed, error);
@@ -65,4 +69,7 @@ async function main() {
 
 main()
     .then(() => { })
-    .catch(reason => console.error(reason));
+    .catch(reason => {
+        sentry.captureException(reason);
+        console.error(reason);
+    });
