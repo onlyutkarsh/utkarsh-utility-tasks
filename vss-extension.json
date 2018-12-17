@@ -78,6 +78,16 @@
 			"properties": {
 				"name": "tasks/publish-secrets-to-kv"
 			}
+		},
+		{
+			"id": "azure-lock-unlock-task",
+			"type": "ms.vss-distributed-task.task",
+			"targets": [
+				"ms.vss-distributed-task.tasks"
+			],
+			"properties": {
+				"name": "tasks/azure-lock-unlock"
+			}
 		}
 	]
 }
