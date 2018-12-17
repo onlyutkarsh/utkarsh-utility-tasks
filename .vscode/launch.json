@@ -15,6 +15,33 @@
             "cwd": "${workspaceRoot}"
         },
         {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug lock.js",
+            "program": "${workspaceRoot}/tasks/azure-lock-unlock/azure-lock-unlockV1/index.ts",
+            "cwd": "${workspaceRoot}"
+        },
+        {
+            "name": "Lock Unlock",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/tasks/azure-lock-unlock/azure-lock-unlockV1/index.ts",
+            "stopOnEntry": false,
+            "args": [],
+            "cwd": "${workspaceFolder}/tasks/azure-lock-unlock/",
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "envFile": "${workspaceFolder}/.env",
+            "console": "integratedTerminal",
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceFolder}/tasks/azure-lock-unlock/azure-lock-unlockV1/index.js"
+            ]
+        },
+        {
             "name": "Launch secrets for strings task",
             "type": "node",
             "request": "launch",

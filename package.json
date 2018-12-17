@@ -11,6 +11,8 @@
     "clean-dist": "rimraf dist",
     "compile": "tsc && tslint --config tslint.json",
     "updatetasks": "node scripts/updatetasks",
+    "beta": "npm run updatetasks -- --beta",
+    "alpha": "npm run updatetasks",
     "copy": "npm run clean-dist && copyfiles \"./tasks/**/!(*.ts|*.js.map|package-lock.json)\" dist && copyfiles vss-extension.json LICENSE *.md dist && copyfiles images/** dist"
   },
   "author": "onlyutkarsh",
