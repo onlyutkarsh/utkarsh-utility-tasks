@@ -47,6 +47,7 @@ async function main() {
             tl.setVariable(name, password, true);
             tl.debug(`Generated secret for '${name}'`);
         });
+        console.info("All done");
     }
     catch (error) {
         console.error("Error occurred", error);
@@ -56,7 +57,7 @@ async function main() {
 }
 
 main()
-    .then(() => console.info("All Done!"))
+    .then(() => { })
     .catch(reason => {
         sentry.captureException(reason);
         console.error(reason);
