@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "beta": "pushd ..\\..\\..\\ && npm run updatetasks -- --beta && popd",
-    "install": "npm run beta && tfx build tasks upload --task-path ."
+    "init": "npm run beta && tfx build tasks upload --task-path ."
   },
   "keywords": [],
   "author": "",
