@@ -18,7 +18,7 @@
     "ms-rest-azure": "^2.5.9"
   },
   "devDependencies": {
-    "@types/node": "^10.12.12",
+    "@types/node": "^10.12.15",
     "@types/q": "^1.5.1"
   }
 }

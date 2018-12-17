@@ -58,6 +58,7 @@ async function main() {
                 console.info("Success");
             }
         }
+        console.info("All done");
     }
     catch (error) {
         sentry.captureException(error);
@@ -67,4 +68,9 @@ async function main() {
     }
 }
 
-main();
+main()
+    .then(() => { })
+    .catch(reason => {
+        sentry.captureException(reason);
+        console.error(reason);
+    });
