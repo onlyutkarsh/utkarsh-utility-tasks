@@ -36,10 +36,25 @@ As the name suggests this task publishes the secrets to selected azure key vault
 
 ![publish-to-kv](images/screenshots/publish-to-kv.png)
 
+### Lock/Unlock Azure resource group/subscription
+
+
+This task allows you to Lock/Unlock Azure resource group or a subscription. You can apply/remove **ReadOnly** or **CanNotDelete** locks. 
+
+[Read more](./tasks/azure-lock-unlock)
+
+
+![publish-to-kv](images/screenshots/azure-lock-unlock.png)
+
 
 ## Changes
 
-> - 1.0 - Initial release
+> - 1.0.6
+>   - Add Lock/Unlock Azure task 
+> - 1.0.4 
+>   - Fix issue in `Publish Secrets to Keyvault` task where some characters were getting trimmed from secrets. 
+> - 1.0.0 
+>   - Initial release
 
 ## Feedback
 
