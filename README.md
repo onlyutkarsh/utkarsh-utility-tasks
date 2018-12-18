@@ -22,7 +22,7 @@ This task generates a secure string based on the given criteria. The task will b
 
 [Read more](./tasks/secrets-for-strings)
 
-![generate-secret](images/screenshots/genrate-secrets.png)
+![generate-secret](/images/screenshots/generate-secrets.png)
 
 
 ### Publish Secrets to Azure Key vault
@@ -32,7 +32,7 @@ As the name suggests this task publishes the secrets to selected azure key vault
 [Read more](./tasks/publish-secrets-to-kv)
 
 
-![publish-to-kv](images/screenshots/publish-to-kv.png)
+![publish-to-kv](/images/screenshots/publish-to-kv.png)
 
 ### Lock/Unlock Azure resource group/subscription
 
@@ -42,14 +42,13 @@ This task allows you to Lock/Unlock Azure resource group or a subscription. You 
 [Read more](./tasks/azure-lock-unlock)
 
 
-![publish-to-kv](images/screenshots/azure-lock-unlock.png)
+![publish-to-kv](/images/screenshots/azure-lock-unlock.png)
 
 
 ## Changes
 
-> - 1.0.6
+> - 1.0.*
 >   - Add Lock/Unlock Azure task.
-> - 1.0.4 
 >   - Fix issue in `Publish Secrets to Keyvault` task where some characters were getting trimmed from secrets. 
 > - 1.0.0 
 >   - Initial release.
