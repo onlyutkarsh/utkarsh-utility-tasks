@@ -9,8 +9,6 @@ A set of utility build and release tasks to help you in your Azure Pipelines. Th
 [![Build status](https://dev.azure.com/utkarshshigihalli/opensource/_apis/build/status/utkarsh-utilities-tasks-CI)](https://dev.azure.com/utkarshshigihalli/opensource/_build/latest?definitionId=1) 
 
 
-
-
 ## Tasks
 
 This extension currently provides following tasks. I plan to add more in the future.
@@ -50,11 +48,11 @@ This task allows you to Lock/Unlock Azure resource group or a subscription. You 
 ## Changes
 
 > - 1.0.6
->   - Add Lock/Unlock Azure task 
+>   - Add Lock/Unlock Azure task.
 > - 1.0.4 
 >   - Fix issue in `Publish Secrets to Keyvault` task where some characters were getting trimmed from secrets. 
 > - 1.0.0 
->   - Initial release
+>   - Initial release.
 
 ## Feedback
 
