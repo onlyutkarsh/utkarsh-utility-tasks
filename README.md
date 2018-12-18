@@ -42,7 +42,7 @@ This task allows you to Lock/Unlock Azure resource group or a subscription. You 
 [Read more](./tasks/azure-lock-unlock)
 
 
-![publish-to-kv](/images/screenshots/azure-lock-unlock.png)
+![azure-lock-unlock](/images/screenshots/azure-lock-unlock.png)
 
 
 ## Changes
