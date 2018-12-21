@@ -15,18 +15,18 @@
 		"Minor": 0,
 		"Patch": 7
 	},
-	"instanceNameFormat": "Azure Lock/Unlock",
+	"instanceNameFormat": "$(action) Azure Lock",
 	"inputs": [
 		{
 			"name": "applyTo",
 			"type": "radio",
 			"label": "Apply To",
 			"required": true,
-			"defaultValue": "toRg",
+			"defaultValue": "ResourceGroup",
 			"helpMarkDown": "Apply the lock to Subscription or Resource group",
 			"options": {
-				"toRg": "Resource group",
-				"toSub": "Subscription"
+				"ResourceGroup": "Resource group",
+				"Subscription": "Subscription"
 			}
 		},
 		{
@@ -38,7 +38,7 @@
 			"label": "Azure subscription",
 			"defaultValue": "",
 			"required": true,
-			"helpMarkDown": "Select the Azure subscription for the key vault"
+			"helpMarkDown": "Select the Azure subscription"
 		},
 		{
 			"name": "resourceGroupName",
@@ -49,7 +49,7 @@
 			"properties": {
 				"EditableOptions": "True"
 			},
-			"visibleRule": "applyTo=toRg"
+			"visibleRule": "applyTo=ResourceGroup"
 		},
 		{
 			"name": "action",
@@ -59,8 +59,8 @@
 			"required": true,
 			"helpMarkDown": "Action to be performed on the selected subscription or resource group.",
 			"options": {
-				"apply": "Apply",
-				"remove": "Remove"
+				"Apply": "Apply",
+				"Remove": "Remove"
 			}
 		},
 		{
@@ -90,7 +90,7 @@
 			"defaultValue": "From Azure DevOps pipeline",
 			"required": false,
 			"helpMarkDown": "Custome notes for the lock",
-			"visibleRule": "action=apply"
+			"visibleRule": "action=Apply"
 		}
 	],
 	"dataSourceBindings": [

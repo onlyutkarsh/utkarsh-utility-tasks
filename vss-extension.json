@@ -5,7 +5,7 @@
 	"publisher": "onlyutkarsh",
 	"version": "0.0.0",
 	"public": false,
-	"description": "Utility tasks for Azure DevOps - Contains tasks to Lock/Unlock Azure resources, Publishing secrets to Keyvault etc",
+	"description": "Utility tasks for Azure DevOps - Contains tasks to Manage tags, Lock/Unlock Azure resources, Publishing secrets to Keyvault etc",
 	"categories": [
 		"Azure Pipelines",
 		"Azure Repos"
@@ -22,7 +22,9 @@
 		"Azure",
 		"Password",
 		"Lock",
-		"Unlock"
+		"Unlock",
+		"Tags",
+		"Manage"
 	],
 	"targets": [
 		{
@@ -49,6 +51,20 @@
 			"path": "readme.md"
 		}
 	},
+	"screenshots": [
+		{
+			"path": "images/screenshots/azure-manage-tags.png"
+		},
+		{
+			"path": "images/screenshots/azure-lock-unlock.png"
+		},
+		{
+			"path": "images/screenshots/generate-secrets.png"
+		},
+		{
+			"path": "images/screenshots/publish-to-kv.png"
+		}
+	],
 	"files": [
 		{
 			"path": "tasks"
@@ -87,6 +103,16 @@
 			],
 			"properties": {
 				"name": "tasks/azure-lock-unlock"
+			}
+		},
+		{
+			"id": "azure-manage-tags",
+			"type": "ms.vss-distributed-task.task",
+			"targets": [
+				"ms.vss-distributed-task.tasks"
+			],
+			"properties": {
+				"name": "tasks/azure-manage-tags"
 			}
 		}
 	]
