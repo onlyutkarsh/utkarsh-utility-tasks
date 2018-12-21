@@ -55,7 +55,7 @@
 			"name": "tagsList",
 			"type": "multiLine",
 			"label": "Tags",
-			"defaultValue": "AddedBy:\"Azure DevOps\"",
+			"defaultValue": "AddedBy:Azure DevOps",
 			"required": true,
 			"helpMarkDown": "Provide a list tags in `key:value` pair each separated by a newline.",
 			"properties": {
