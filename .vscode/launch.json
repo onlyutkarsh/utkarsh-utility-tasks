@@ -15,11 +15,24 @@
             "cwd": "${workspaceRoot}"
         },
         {
+            "name": "Tags",
             "type": "node",
             "request": "launch",
-            "name": "Debug lock.js",
-            "program": "${workspaceRoot}/tasks/azure-lock-unlock/azure-lock-unlockV1/index.ts",
-            "cwd": "${workspaceRoot}"
+            "program": "${workspaceFolder}/tasks/azure-manage-tags/azure-manage-tagsV1/index.ts",
+            "stopOnEntry": false,
+            "args": [],
+            "cwd": "${workspaceFolder}/tasks/azure-manage-tags/",
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "envFile": "${workspaceFolder}/.env",
+            "console": "integratedTerminal",
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceFolder}/tasks/azure-manage-tags/azure-manage-tagsV1/index.js"
+            ]
         },
         {
             "name": "Lock Unlock",

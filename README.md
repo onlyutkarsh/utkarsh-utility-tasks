@@ -13,6 +13,33 @@ A set of utility build and release tasks to help you in your Azure Pipelines. Th
 
 This extension currently provides following tasks. I plan to add more in the future.
 
+### Publish Secrets to Azure Key vault
+
+As the name suggests this task publishes the secrets to selected azure key vault. The advantage of using this task is you can publish secrets in bulk. Useful especially when you need to publish multiple secrets at once. The task also allows you to add optional tags to each secret you write. 
+
+[Read more](./tasks/publish-secrets-to-kv)
+
+
+![publish-to-kv](/images/screenshots/publish-to-kv.png)
+
+### Azure Lock/Unlock resource group/subscription
+
+
+This task allows you to Lock/Unlock Azure resource group or a subscription. You can apply/remove **ReadOnly** or **CanNotDelete** locks. 
+
+[Read more](./tasks/azure-lock-unlock)
+
+
+![azure-lock-unlock](/images/screenshots/azure-lock-unlock.png)
+
+### Manage tags
+
+This task allows you to add one or multiple tags at once to Azure resource group. You can **replace** existing tags with the new one or also **Clear** the existing tags. 
+
+[Read more](./tasks/azure-lock-unlock)
+
+![azure-manage-tags](/images/screenshots/azure-manage-tags.png)
+
 ### Generate Secrets
 
 This task generates a secure string based on the given criteria. The task will be useful 
@@ -24,30 +51,10 @@ This task generates a secure string based on the given criteria. The task will b
 
 ![generate-secret](/images/screenshots/generate-secrets.png)
 
-
-### Publish Secrets to Azure Key vault
-
-As the name suggests this task publishes the secrets to selected azure key vault. The advantage of using this task is you can publish secrets in bulk. Useful especially when you need to publish multiple secrets at once. The task also allows you to add optional tags to each secret you write. 
-
-[Read more](./tasks/publish-secrets-to-kv)
-
-
-![publish-to-kv](/images/screenshots/publish-to-kv.png)
-
-### Lock/Unlock Azure resource group/subscription
-
-
-This task allows you to Lock/Unlock Azure resource group or a subscription. You can apply/remove **ReadOnly** or **CanNotDelete** locks. 
-
-[Read more](./tasks/azure-lock-unlock)
-
-
-![azure-lock-unlock](/images/screenshots/azure-lock-unlock.png)
-
-
 ## Changes
 
 > - 1.0.*
+>   - Add Manage tags task
 >   - Add Lock/Unlock Azure task.
 >   - Fix issue in `Publish Secrets to Keyvault` task where some characters were getting trimmed from secrets. 
 > - 1.0.0 

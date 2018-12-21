@@ -14,6 +14,11 @@
             "path": "tasks/azure-lock-unlock",
             "id": "89b49283-19ba-4638-9387-bb6f33a137b3",
             "betaId": "7665e036-2eab-4e26-b61f-6994eda1cddb"
+        },
+        {
+            "path": "tasks/azure-manage-tags",
+            "id": "23a08f61-afcb-48aa-8b1c-e7e842eda3f3",
+            "betaId": "f2182c26-ceba-4192-9460-73f09654eafc"
         }
     ]
 }

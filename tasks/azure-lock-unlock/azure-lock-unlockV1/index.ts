@@ -28,8 +28,8 @@ async function main() {
         let debugOutput = tl.getVariable("system.debug") || "false";
         let isDebugOutput: boolean = debugOutput.toLowerCase() === "true";
 
-        if (action === "apply") {
-            if (applyTo === "toRg") {
+        if (action === "Apply") {
+            if (applyTo === "ResourceGroup") {
                 console.info(`Applying '${lockType}' lock to resource group '${resourceGroupName}'`);
                 await client.managementLocks.createOrUpdateAtResourceGroupLevel(resourceGroupName, lockName, <azrm.ManagementLockClient.ManagementLockModels.ManagementLockObject>{
                     level: lockType,
@@ -47,7 +47,7 @@ async function main() {
             }
         }
         else {
-            if (applyTo === "toRg") {
+            if (applyTo === "ResourceGroup") {
                 console.info(`Removing '${lockType}' lock from resource group '${resourceGroupName}'`);
                 await client.managementLocks.deleteAtResourceGroupLevel(resourceGroupName, lockName);
                 console.info("Success");
