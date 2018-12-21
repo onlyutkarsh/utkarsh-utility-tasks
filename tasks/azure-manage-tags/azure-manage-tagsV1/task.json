@@ -1,7 +1,7 @@
 {
 	"id": "23a08f61-afcb-48aa-8b1c-e7e842eda3f3",
-	"name": "azuremanagetagsdev",
-	"friendlyName": "Azure Tag",
+	"name": "azuremanagetags",
+	"friendlyName": "Manage Azure Tags",
 	"description": "Append, Replace or Clear one or many Azure tags",
 	"helpMarkDown": "[More Information](https://marketplace.visualstudio.com/items?itemName=onlyutkarsh.utkarsh-utility-tasks) - v#{GitVersion.MajorMinorPatch}#",
 	"category": "Utility",
