@@ -55,7 +55,7 @@
 			"name": "action",
 			"type": "pickList",
 			"label": "Action",
-			"defaultValue": "apply",
+			"defaultValue": "Apply",
 			"required": true,
 			"helpMarkDown": "Action to be performed on the selected subscription or resource group.",
 			"options": {
