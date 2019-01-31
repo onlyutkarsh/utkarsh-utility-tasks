@@ -12,14 +12,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@sentry/node": "^4.4.2",
+    "@sentry/node": "^4.5.3",
     "azure-arm-resource": "^7.3.0",
     "azure-pipelines-task-lib": "^2.7.7",
-    "ms-rest-azure": "^2.5.9",
-    "xregexp": "^4.2.0"
+    "ms-rest-azure": "^2.6.0",
+    "xregexp": "^4.2.4"
   },
   "devDependencies": {
-    "@types/node": "^10.12.15",
+    "@types/node": "^10.12.20",
     "@types/q": "^1.5.1"
   }
 }

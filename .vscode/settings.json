@@ -7,6 +7,10 @@
         "**/.DS_Store": true,
         "**/*.js.map": true,
         "**/*.taskkey": true,
-        "**/*.js": { "when": "$(basename).ts"}
-    }
+        "**/*.js": {
+            "when": "$(basename).ts"
+        }
+    },
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": true
 }

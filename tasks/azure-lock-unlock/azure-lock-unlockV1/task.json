@@ -101,6 +101,9 @@
 		}
 	],
 	"execution": {
+		"Node10": {
+			"target": "index.js"
+		},
 		"Node": {
 			"target": "index.js"
 		}

@@ -1,0 +1,59 @@
+{
+	"Main function skeleton": {
+		"prefix": "main-fn",
+		"body": [
+		  "import * as tl from \"azure-pipelines-task-lib\";",
+		  "import * as sentry from \"@sentry/node\";",
+		  "",
+		  "sentry.init({ dsn: \"https://28b58a21d5b74a0bba0e56d937dd56f9@sentry.io/1285555\" });",
+		  "sentry.configureScope((scope) => {",
+		  "    scope.setTag(\"task\", \"${1:task-name}\");",
+		  "});",
+		  "async function main() {",
+		  "    try {",
+		  "        console.info(\"All done\");",
+		  "    }",
+		  "    catch (error) {",
+		  "        sentry.captureException(error);",
+		  "        console.error(\"Error occurred\", error);",
+		  "        tl.error(error);",
+		  "        tl.setResult(tl.TaskResult.Failed, error);",
+		  "    }",
+		  "}",
+		  "",
+		  "main()",
+		  "    .then(() => { })",
+		  "    .catch(reason => {",
+		  "        sentry.captureException(reason);",
+		  "        console.error(reason);",
+		  "    });"
+		],
+		"description": "Main function skeleton"
+	  },
+	  "Launch configuration for task": {
+		"prefix": "launch-config",
+		"body": [
+		  "{",
+		  "            \"name\": \"${1:Name}\",",
+		  "            \"type\": \"node\",",
+		  "            \"request\": \"launch\",",
+		  "            \"program\": \"\\${workspaceFolder}/tasks/${2:task-name}/${2:task-name}V1/index.ts\",",
+		  "            \"stopOnEntry\": false,",
+		  "            \"args\": [],",
+		  "            \"cwd\": \"\\${workspaceFolder}/tasks/${2:task-name}/\",",
+		  "            \"preLaunchTask\": null,",
+		  "            \"runtimeExecutable\": null,",
+		  "            \"runtimeArgs\": [",
+		  "                \"--nolazy\"",
+		  "            ],",
+		  "            \"envFile\": \"\\${workspaceFolder}/.env\",",
+		  "            \"console\": \"integratedTerminal\",",
+		  "            \"sourceMaps\": true,",
+		  "            \"outFiles\": [",
+		  "                \"\\${workspaceFolder}/tasks/${2:task-name}/${2:task-name}V1/index.js\"",
+		  "            ]",
+		  "        }\t$0"
+		],
+		"description": "Launch configuration for task"
+	  }
+}

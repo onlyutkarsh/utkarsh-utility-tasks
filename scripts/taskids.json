@@ -19,6 +19,11 @@
             "path": "tasks/azure-manage-tags",
             "id": "23a08f61-afcb-48aa-8b1c-e7e842eda3f3",
             "betaId": "f2182c26-ceba-4192-9460-73f09654eafc"
+        },
+        {
+            "path": "tasks/clean-folder",
+            "id": "20a947f2-c251-42e8-8376-5d7c5c1f8e71",
+            "betaId": "1da2af19-52e1-4f3c-bc91-3c801131d744"
         }
     ]
 }
