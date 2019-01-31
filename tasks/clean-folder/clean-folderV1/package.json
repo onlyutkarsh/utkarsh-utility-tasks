@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@sentry/node": "~4.5.3",
+    "@sentry/node": "~4.4.2",
     "azure-pipelines-task-lib": "~2.7.7",
     "del": "~3.0.0"
   },
