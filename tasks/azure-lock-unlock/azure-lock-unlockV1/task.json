@@ -30,7 +30,7 @@
 			}
 		},
 		{
-			"name": "ConnectedServiceName",
+			"name": "ConnectedServiceARM",
 			"aliases": [
 				"azureSubscription"
 			],

@@ -3,6 +3,7 @@ import * as msrestazure from "ms-rest-azure";
 import * as keyvault from "azure-keyvault";
 import * as sentry from "@sentry/node";
 import * as xreg from "xregexp";
+import { ServiceClientCredentials } from "ms-rest";
 
 sentry.init({ dsn: "https://28b58a21d5b74a0bba0e56d937dd56f9@sentry.io/1285555" });
 sentry.configureScope((scope) => {
@@ -11,12 +12,10 @@ sentry.configureScope((scope) => {
 async function main() {
     try {
         // get the task vars
-        let connectedService = tl.getInput("ConnectedServiceName", true);
-        let subscriptionId = tl.getEndpointDataParameter(connectedService, "subscriptionId", true);
-        let clientId = tl.getEndpointAuthorizationParameter(connectedService, "serviceprincipalid", true);
-        let clientSecret = tl.getEndpointAuthorizationParameter(connectedService, "serviceprincipalkey", true);
+        let connectedService: string = tl.getInput("ConnectedServiceARM", true);
         let azureKeyVaultDnsSuffix = tl.getEndpointDataParameter(connectedService, "AzureKeyVaultDnsSuffix", true);
-        let tenantId: string = tl.getEndpointAuthorizationParameter(connectedService, "tenantId", false);
+        let credentials = getCredentials(connectedService);
+
         let tags = tl.getInput("tags", false) || "";
         let contentType = tl.getInput("contentType", false) || "";
 
@@ -38,7 +37,6 @@ async function main() {
         let keyVaultUrl = `https://${keyVaultName}.${azureKeyVaultDnsSuffix}`;
 
         console.info(`Connecting to key vault '${keyVaultUrl}'`);
-        let credentials = await msrestazure.loginWithServicePrincipalSecret(clientId, clientSecret, tenantId);
         let kvClient = new keyvault.KeyVaultClient(credentials);
         console.info("Done");
 
@@ -50,6 +48,7 @@ async function main() {
             console.info(`Writing secret '${secretName}' to key vault`);
             await kvClient.setSecret(keyVaultUrl, secretName, secretValue, { tags: tagsList, contentType: contentType }, (err, secretBundle) => {
                 if (err) {
+                    console.warn(`Exception while publishing secret for '${secretName}'`, err);
                     tl.warning(`Error while writing '${secretName}'`);
                 }
                 else {
@@ -60,11 +59,30 @@ async function main() {
         console.info("All done");
     }
     catch (error) {
-        sentry.captureException(error);
         console.error("Error occurred", error);
+        sentry.captureException(error);
         tl.error(error);
         tl.setResult(tl.TaskResult.Failed, error);
     }
+}
+
+function getCredentials(connectedService: string): ServiceClientCredentials {
+
+    let authScheme = tl.getEndpointAuthorizationScheme(connectedService, true);
+    let subscriptionId = tl.getEndpointDataParameter(connectedService, "subscriptionId", true);
+    let clientId = tl.getEndpointAuthorizationParameter(connectedService, "serviceprincipalid", true);
+    let clientSecret = tl.getEndpointAuthorizationParameter(connectedService, "serviceprincipalkey", true);
+    let tenantId: string = tl.getEndpointAuthorizationParameter(connectedService, "tenantId", false);
+
+    if (authScheme === "ManagedServiceIdentity") {
+        console.log("Logging in using MSIVmTokenCredentials");
+        return new msrestazure.MSIVmTokenCredentials();
+    }
+    console.log(`Logging in using ApplicationTokenCredentials, authScheme is '${authScheme}'`);
+
+    let credentials = new msrestazure.ApplicationTokenCredentials(clientId, tenantId, clientSecret);
+
+    return credentials;
 }
 
 main()

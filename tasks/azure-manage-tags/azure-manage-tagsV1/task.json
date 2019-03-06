@@ -18,7 +18,7 @@
 	"instanceNameFormat": "$(action) tags in $(resourceGroupName)",
 	"inputs": [
 		{
-			"name": "ConnectedServiceName",
+			"name": "ConnectedServiceNameARM",
 			"aliases": [
 				"azureSubscription"
 			],

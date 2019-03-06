@@ -1,21 +1,23 @@
 {
-  "name": "generate-secrets",
+  "name": "utkarsh-utility-tasks",
   "version": "1.0.0",
   "description": "Generate secret variables for the strings specified based on the secret preferences",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onlyutkarsh/utkarsh-utility-tasks"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "task:secret-for-strings": "pushd \"tasks/secrets-for-strings/secrets-for-stringsV1\" && npm install && npm dedupe && npm prune --production && popd",
-    "task:publish-secrets-to-kv": "pushd \"tasks/publish-secrets-to-kv/publish-secrets-to-kvV1\" && npm install && npm dedupe && npm prune --production && popd",
-    "task:azure-lock-unlock": "pushd \"tasks/azure-lock-unlock/azure-lock-unlockV1\" && npm install && npm dedupe && npm prune --production && popd",
-    "task:azure-manage-tags": "pushd \"tasks/azure-manage-tags/azure-manage-tagsV1\" && npm install && npm dedupe && npm prune --production && popd",
-    "init": "npm install && npm run task:secret-for-strings && npm run task:publish-secrets-to-kv && npm run task:azure-lock-unlock && npm run task:azure-manage-tags",
+    "init": "npm run init:root && npm run init:tasks",
     "clean-dist": "rimraf dist",
-    "compile": "tsc && tslint --config tslint.json",
+    "compile": "tsc && tslint --project .",
     "updatetasks": "node scripts/updatetasks",
     "beta": "npm run updatetasks -- --beta",
     "alpha": "npm run updatetasks",
-    "copy": "npm run clean-dist && copyfiles \"./tasks/**/!(*.ts|*.js.map|package-lock.json)\" dist && copyfiles vss-extension.json LICENSE *.md dist && copyfiles images/**/* dist"
+    "copy": "npm run clean-dist && copyfiles \"./tasks/**/!(*.ts|*.js.map|package-lock.json)\" dist && copyfiles vss-extension.json LICENSE *.md dist && copyfiles images/**/* dist",
+    "clean": "git clean -fdx -e .env",
+    "init:tasks": "glob-exec --parallel --foreach \"./tasks/**/task.json\" -- \"cd {{file.dir}} && npm install --no-update-notifier --no-progress && npm dedupe && npm prune --production\"",
+    "init:root": "npm install --no-progress --no-update-notifier && npm dedupe"
   },
   "author": "onlyutkarsh",
   "license": "ISC",
@@ -34,6 +36,7 @@
     "dotenv": "^6.2.0",
     "fs-extra": "^7.0.1",
     "glob": "^7.1.3",
+    "glob-exec": "~0.1.1",
     "rimraf": "^2.6.2",
     "token-substitute": "^1.2.0",
     "tslint": "^5.11.0",

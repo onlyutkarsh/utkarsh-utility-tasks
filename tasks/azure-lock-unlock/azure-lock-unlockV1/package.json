@@ -1,12 +1,16 @@
 {
   "name": "azure-lock-unlockV1",
   "version": "1.0.0",
-  "description": "",
+  "description": "A task to lock or unlock azure resource",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "beta": "pushd ..\\..\\..\\ && npm run updatetasks -- --beta && popd",
     "upload": "npm run beta && tfx build tasks upload --task-path ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onlyutkarsh/utkarsh-utility-tasks"
   },
   "keywords": [],
   "author": "",

@@ -6,14 +6,18 @@
   "scripts": {
     "clean-task": "npm dedupe && npm prune --production"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onlyutkarsh/utkarsh-utility-tasks"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@sentry/node": "^4.4.2",
     "azure-keyvault": "^3.0.4",
     "azure-pipelines-task-lib": "^2.7.7",
-    "ms-rest-azure": "^2.5.9",
-    "xregexp": "^4.2.0"
+    "ms-rest-azure": "^2.6.0",
+    "xregexp": "^4.2.4"
   },
   "devDependencies": {
     "@types/node": "^10.12.15",

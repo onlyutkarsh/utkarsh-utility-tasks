@@ -1,12 +1,16 @@
 {
   "name": "azure-manage-tags",
   "version": "1.0.0",
-  "description": "",
+  "description": "A task to manage azure tags",
   "main": "index.js",
   "scripts": {
     "beta": "pushd ..\\..\\..\\ && npm run updatetasks -- --beta && popd",
     "alpha": "pushd ..\\..\\..\\ && npm run updatetasks && popd",
     "upload": "pushd . && npm run beta && tfx build tasks upload --task-path . && popd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onlyutkarsh/utkarsh-utility-tasks"
   },
   "keywords": [],
   "author": "",

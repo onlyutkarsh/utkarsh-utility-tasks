@@ -9,7 +9,7 @@ sentry.configureScope((scope) => {
 });
 async function main() {
     try {
-        let connectedService = tl.getInput("ConnectedServiceName", true);
+        let connectedService = tl.getInput("ConnectedServiceARM", true);
         let subscriptionId = tl.getEndpointDataParameter(connectedService, "subscriptionId", true);
         let clientId = tl.getEndpointAuthorizationParameter(connectedService, "serviceprincipalid", true);
         let clientSecret = tl.getEndpointAuthorizationParameter(connectedService, "serviceprincipalkey", true);

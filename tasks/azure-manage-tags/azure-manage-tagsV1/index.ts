@@ -10,7 +10,7 @@ sentry.configureScope((scope) => {
 });
 async function main() {
     try {
-        let connectedService = tl.getInput("ConnectedServiceName", true);
+        let connectedService = tl.getInput("ConnectedServiceNameARM", true);
         let subscriptionId = tl.getEndpointDataParameter(connectedService, "subscriptionId", true);
         let clientId = tl.getEndpointAuthorizationParameter(connectedService, "serviceprincipalid", true);
         let clientSecret = tl.getEndpointAuthorizationParameter(connectedService, "serviceprincipalkey", true);
@@ -65,7 +65,7 @@ async function main() {
 
 async function appendTags(newTags: any, resourceGroup: azrm.ResourceManagementClient.ResourceManagementModels.ResourceGroup, rmClient: azrm.ResourceManagementClient.ResourceManagementClient) {
     let existingTags = resourceGroup.tags || {};
-    let updatedTags = {...existingTags, ...newTags};
+    let updatedTags = { ...existingTags, ...newTags };
     let model: azrm.ResourceModels.ResourceGroup = {
         tags: updatedTags,
         location: resourceGroup.location,

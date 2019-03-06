@@ -6,6 +6,10 @@
   "scripts": {
     "clean-task": "npm dedupe && npm prune --production"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onlyutkarsh/utkarsh-utility-tasks"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
