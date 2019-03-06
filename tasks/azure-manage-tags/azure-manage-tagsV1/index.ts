@@ -4,10 +4,20 @@ import * as azrm from "azure-arm-resource";
 import * as sentry from "@sentry/node";
 import * as xreg from "xregexp";
 
-sentry.init({ dsn: "https://28b58a21d5b74a0bba0e56d937dd56f9@sentry.io/1285555" });
-sentry.configureScope((scope) => {
-    scope.setTag("task", "azure-manage-tags");
+let _rootdir = __dirname || process.cwd();
+sentry.init({
+    dsn: "https://28b58a21d5b74a0bba0e56d937dd56f9@sentry.io/1285555",
+    release: "utkarsh-utility-tasks@#{Release.ReleaseName}#",
+    environment: "#{Release.EnvironmentName}#",
+    integrations: [new sentry.Integrations.RewriteFrames({
+        root: _rootdir
+    })]
 });
+sentry.configureScope((scope) => {
+    scope.setTag("task", "azure-lock-unlock");
+    scope.setExtra("os", tl.osType);
+});
+
 async function main() {
     try {
         let connectedService = tl.getInput("ConnectedServiceNameARM", true);

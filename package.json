@@ -11,6 +11,7 @@
     "init": "npm run init:root && npm run init:tasks",
     "clean-dist": "rimraf dist",
     "compile": "tsc && tslint --project .",
+    "compile:prod": "tsc -p tsconfig.production.json && tslint --project .",
     "updatetasks": "node scripts/updatetasks",
     "beta": "npm run updatetasks -- --beta",
     "alpha": "npm run updatetasks",

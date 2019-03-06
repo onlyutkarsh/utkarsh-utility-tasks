@@ -61,6 +61,10 @@ This task generates a secure string based on the given criteria. The task will b
 > - 1.0.0 
 >   - Initial release.
 
+## Telemetry
+
+To monitor/improve the tasks I send some telemetry **only when task errors out**. The data I send include platform (Windows/Linux etc) and the stacktrace of the exception. This will never send data like your name, subscription/tenant details. The code is open source and you are free to take a look. If you have any concerns, please raise an issue and I am happy investigate.
+
 ## Feedback
 
 Please rate the extension and share/tweet to spread the word!!
