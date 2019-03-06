@@ -70,7 +70,7 @@
 		{
 			"target": "keyVaultName",
 			"endpointId": "$(ConnectedServiceName)",
-			"dataSourceName": "AzureKeyVaultsList",
+			"dataSourceName": "AzureKeyVaults",
 			"resultTemplate": "{ \"Value\" : \"{{{name}}}\", \"DisplayValue\" : \"{{{name}}}\" }"
 		}
 	],
