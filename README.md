@@ -53,6 +53,8 @@ This task generates a secure string based on the given criteria. The task will b
 
 ## Changes
 
+> - v#{Release.ReleaseName}#
+>   - Fix [issue 10](https://github.com/onlyutkarsh/utkarsh-utility-tasks/issues/10)
 > - 1.0.*
 >   - Add Manage tags task
 >   - Add Lock/Unlock Azure task.
