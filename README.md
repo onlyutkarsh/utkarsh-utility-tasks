@@ -1,4 +1,4 @@
-# Utkarsh Azure DevOps Tasks
+# Azure Utility Tasks
 
 A set of utility build and release tasks to help you in your Azure Pipelines. The tasks in this extension are written in `node` and hence can be run in both Windows or Linux based agents.
 
@@ -54,6 +54,7 @@ This task generates a secure string based on the given criteria. The task will b
 
 > - v#{Release.ReleaseName}#
 >   - Fix [issue 10](https://github.com/onlyutkarsh/utkarsh-utility-tasks/issues/10)
+>   - Fix [issue 11](https://github.com/onlyutkarsh/utkarsh-utility-tasks/issues/11)
 > - 1.0.16
 >   - Add Manage tags task
 >   - Add Lock/Unlock Azure task.
