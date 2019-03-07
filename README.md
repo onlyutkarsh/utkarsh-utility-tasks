@@ -1,12 +1,11 @@
 # Utkarsh Azure DevOps Tasks
 
-[![Twitter Follow](https://img.shields.io/twitter/follow/onlyutkarsh.svg?style=social&label=Follow)](https://twitter.com/onlyutkarsh)
-
 A set of utility build and release tasks to help you in your Azure Pipelines. The tasks in this extension are written in `node` and hence can be run in both Windows or Linux based agents.
 
-
+[![Twitter Follow](https://img.shields.io/twitter/follow/onlyutkarsh.svg?style=social&label=Follow)](https://twitter.com/onlyutkarsh)
 [![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/v/onlyutkarsh.utkarsh-utility-tasks.svg)](https://marketplace.visualstudio.com/items?itemName=onlyutkarsh.utkarsh-utility-tasks)
 [![Build status](https://dev.azure.com/utkarshshigihalli/opensource/_apis/build/status/utkarsh-utilities-tasks-CI)](https://dev.azure.com/utkarshshigihalli/opensource/_build/latest?definitionId=1) 
+[![Deployment status](https://vsrm.dev.azure.com/utkarshshigihalli/_apis/public/Release/badge/7dacb9d3-9bce-415a-a15a-1b3e415612c8/1/7)](https://vsrm.dev.azure.com/utkarshshigihalli/_apis/public/Release/badge/7dacb9d3-9bce-415a-a15a-1b3e415612c8/1/7)
 
 
 ## Tasks
@@ -55,16 +54,19 @@ This task generates a secure string based on the given criteria. The task will b
 
 > - v#{Release.ReleaseName}#
 >   - Fix [issue 10](https://github.com/onlyutkarsh/utkarsh-utility-tasks/issues/10)
-> - 1.0.*
+> - 1.0.16
 >   - Add Manage tags task
 >   - Add Lock/Unlock Azure task.
 >   - Fix issue in `Publish Secrets to Keyvault` task where some characters were getting trimmed from secrets. 
 > - 1.0.0 
 >   - Initial release.
 
+## Telemetry
+
+To monitor/improve the tasks I send some telemetry **only when task errors out**. The data I send include platform (Windows/Linux etc) and the stacktrace of the exception. This will never send data like your name, subscription/tenant details. The code is open source and you are free to take a look. If you have any concerns, please raise an issue and I am happy investigate.
+
 ## Feedback
 
 Please rate the extension and share/tweet to spread the word!!
 
 - Found a bug or need to make a feature request? - Raise it as an [issue](https://github.com/onlyutkarsh/utkarsh-utility-tasks/issues).
-- Have a question? - Raise it here in the Q and A section.

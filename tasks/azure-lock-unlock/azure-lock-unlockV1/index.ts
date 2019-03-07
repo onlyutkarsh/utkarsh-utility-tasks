@@ -2,20 +2,28 @@ import * as tl from "azure-pipelines-task-lib";
 import * as msrestazure from "ms-rest-azure";
 import * as azrm from "azure-arm-resource";
 import * as sentry from "@sentry/node";
+import { ServiceClientCredentials } from "ms-rest";
 
-sentry.init({ dsn: "https://28b58a21d5b74a0bba0e56d937dd56f9@sentry.io/1285555" });
+let _rootdir = __dirname || process.cwd();
+sentry.init({
+    dsn: "https://28b58a21d5b74a0bba0e56d937dd56f9@sentry.io/1285555",
+    release: "utkarsh-utility-tasks@#{Release.ReleaseName}#",
+    environment: "#{Release.EnvironmentName}#",
+    integrations: [new sentry.Integrations.RewriteFrames({
+        root: _rootdir
+    })]
+});
 sentry.configureScope((scope) => {
     scope.setTag("task", "azure-lock-unlock");
+    scope.setTag("os", tl.osType());
 });
+
 async function main() {
     try {
-        let connectedService = tl.getInput("ConnectedServiceARM", true);
+        let connectedService = tl.getInput("ConnectedServiceName", true);
         let subscriptionId = tl.getEndpointDataParameter(connectedService, "subscriptionId", true);
-        let clientId = tl.getEndpointAuthorizationParameter(connectedService, "serviceprincipalid", true);
-        let clientSecret = tl.getEndpointAuthorizationParameter(connectedService, "serviceprincipalkey", true);
-        let tenantId: string = tl.getEndpointAuthorizationParameter(connectedService, "tenantId", false);
 
-        let credentials = await msrestazure.loginWithServicePrincipalSecret(clientId, clientSecret, tenantId);
+        let credentials = getCredentials(connectedService);
         let client = new azrm.ManagementLockClient.ManagementLockClient(credentials, subscriptionId);
 
         let applyTo = tl.getInput("applyTo", true);
@@ -66,6 +74,25 @@ async function main() {
         tl.error(error);
         tl.setResult(tl.TaskResult.Failed, error);
     }
+}
+
+function getCredentials(connectedService: string): ServiceClientCredentials {
+
+    let authScheme = tl.getEndpointAuthorizationScheme(connectedService, true);
+    let subscriptionId = tl.getEndpointDataParameter(connectedService, "subscriptionId", true);
+    let clientId = tl.getEndpointAuthorizationParameter(connectedService, "serviceprincipalid", true);
+    let clientSecret = tl.getEndpointAuthorizationParameter(connectedService, "serviceprincipalkey", true);
+    let tenantId: string = tl.getEndpointAuthorizationParameter(connectedService, "tenantId", false);
+
+    if (authScheme === "ManagedServiceIdentity") {
+        console.log("Logging in using MSIVmTokenCredentials");
+        return new msrestazure.MSIVmTokenCredentials();
+    }
+    console.log(`Logging in using ApplicationTokenCredentials, authScheme is '${authScheme}'`);
+
+    let credentials = new msrestazure.ApplicationTokenCredentials(clientId, tenantId, clientSecret);
+
+    return credentials;
 }
 
 main()
