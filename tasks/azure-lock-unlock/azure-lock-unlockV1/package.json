@@ -18,7 +18,7 @@
   "dependencies": {
     "@sentry/node": "^4.6.4",
     "azure-arm-resource": "^7.3.0",
-    "azure-pipelines-task-lib": "^2.7.7",
+    "azure-pipelines-task-lib": "^2.8.0",
     "ms-rest-azure": "^2.6.0"
   },
   "devDependencies": {

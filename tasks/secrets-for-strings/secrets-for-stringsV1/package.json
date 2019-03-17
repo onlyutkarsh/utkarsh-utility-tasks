@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@sentry/node": "^4.6.4",
-    "azure-pipelines-task-lib": "^2.7.7",
+    "azure-pipelines-task-lib": "^2.8.0",
     "generate-password": "^1.4.1"
   },
   "devDependencies": {
