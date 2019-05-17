@@ -10,6 +10,10 @@
             "problemMatcher": [
                 "$tsc-watch"
             ],
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem"
+            },
             "isBackground": true,
         }
     ]
