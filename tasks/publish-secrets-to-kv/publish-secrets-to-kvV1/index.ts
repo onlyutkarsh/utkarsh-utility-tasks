@@ -15,13 +15,16 @@ sentry.init({
     })]
 });
 sentry.configureScope((scope) => {
-    scope.setTag("task", "azure-lock-unlock");
+    scope.setTag("task", "publish-secrets-to-kv");
     scope.setTag("os", tl.osType());
+    scope.setTag("org", tl.getVariable("SYSTEM_TEAMFOUNDATIONCOLLECTIONURI"));
 });
 
 async function main() {
     try {
         // get the task vars
+        throw "Demo";
+
         let connectedService: string = tl.getInput("ConnectedServiceName", true);
         let azureKeyVaultDnsSuffix = tl.getEndpointDataParameter(connectedService, "AzureKeyVaultDnsSuffix", true);
         let credentials = getCredentials(connectedService);

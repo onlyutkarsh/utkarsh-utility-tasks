@@ -16,6 +16,7 @@ sentry.init({
 sentry.configureScope((scope) => {
     scope.setTag("task", "azure-lock-unlock");
     scope.setTag("os", tl.osType());
+    scope.setTag("org", tl.getVariable("SYSTEM_TEAMFOUNDATIONCOLLECTIONURI"));
 });
 
 async function main() {
