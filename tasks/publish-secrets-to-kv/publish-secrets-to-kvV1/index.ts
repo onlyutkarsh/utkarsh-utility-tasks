@@ -23,8 +23,6 @@ sentry.configureScope((scope) => {
 async function main() {
     try {
         // get the task vars
-        throw "Demo";
-
         let connectedService: string = tl.getInput("ConnectedServiceName", true);
         let azureKeyVaultDnsSuffix = tl.getEndpointDataParameter(connectedService, "AzureKeyVaultDnsSuffix", true);
         let credentials = getCredentials(connectedService);
