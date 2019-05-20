@@ -5,7 +5,6 @@ A set of utility build and release tasks to help you in your Azure Pipelines. Th
 [![Twitter Follow](https://img.shields.io/twitter/follow/onlyutkarsh.svg?style=social&label=Follow)](https://twitter.com/onlyutkarsh)
 [![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/v/onlyutkarsh.utkarsh-utility-tasks.svg)](https://marketplace.visualstudio.com/items?itemName=onlyutkarsh.utkarsh-utility-tasks)
 [![Build status](https://dev.azure.com/utkarshshigihalli/opensource/_apis/build/status/utkarsh-utilities-tasks-CI)](https://dev.azure.com/utkarshshigihalli/opensource/_build/latest?definitionId=1) 
-[![Deployment status](https://vsrm.dev.azure.com/utkarshshigihalli/_apis/public/Release/badge/7dacb9d3-9bce-415a-a15a-1b3e415612c8/1/7)](https://vsrm.dev.azure.com/utkarshshigihalli/_apis/public/Release/badge/7dacb9d3-9bce-415a-a15a-1b3e415612c8/1/7)
 
 
 ## Tasks
@@ -43,7 +42,7 @@ This task allows you to add one or multiple tags at once to Azure resource group
 
 This task generates a secure string based on the given criteria. The task will be useful 
 
-- When you do not want to mantain the passwords, secrets in your files and commit in the source control. Use this task to generate passwords/secrets on the fly. 
+- When you do not want to maintain the passwords, secrets in your files and commit in the source control. Use this task to generate passwords/secrets on the fly. 
 - You would like to rotate your passwords every few days and hence would like to generate new passwords in your pipeline.  
 
 [Read more](./tasks/secrets-for-strings)
