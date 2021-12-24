@@ -1,5 +1,5 @@
 {
-  "name": "azure-lock-unlock-v1",
+  "name": "azure-lock-unlock-v2",
   "version": "1.0.0",
   "description": "A task to lock or unlock azure resource",
   "main": "index.js",
@@ -23,7 +23,7 @@
     "ms-rest-azure": "^3.0.1"
   },
   "devDependencies": {
-    "@types/node": "^11.10.4",
+    "@types/node": "^17.0.4",
     "@types/q": "^1.5.5"
   }
 }

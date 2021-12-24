@@ -11,5 +11,6 @@
             "when": "$(basename).ts"
         }
     },
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "print.colourScheme": "GitHub Gist"
 }

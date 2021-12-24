@@ -1,5 +1,5 @@
 {
-  "name": "generate-secret-variables",
+  "name": "generate-secret-variables-v1",
   "version": "0.0.0",
   "description": "download artifact task",
   "main": "index.js",
@@ -13,12 +13,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@sentry/node": "^4.6.4",
-    "azure-pipelines-task-lib": "^2.8.0",
-    "generate-password": "^1.4.1"
+    "@sentry/node": "^6.16.1",
+    "@sentry/integrations": "^6.16.1",
+    "azure-pipelines-task-lib": "^3.1.10",
+    "generate-password": "^1.7.0"
   },
   "devDependencies": {
     "@types/node": "^11.10.4",
-    "@types/q": "^1.5.1"
+    "@types/q": "^1.5.5"
   }
 }

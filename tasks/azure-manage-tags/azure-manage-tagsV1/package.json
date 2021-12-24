@@ -1,5 +1,5 @@
 {
-  "name": "azure-manage-tags",
+  "name": "azure-manage-tags-v1",
   "version": "1.0.0",
   "description": "A task to manage azure tags",
   "main": "index.js",
@@ -16,14 +16,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@sentry/node": "^4.6.4",
-    "azure-arm-resource": "^7.3.0",
-    "azure-pipelines-task-lib": "^2.8.0",
-    "ms-rest-azure": "^2.6.0",
-    "xregexp": "^4.2.4"
+    "@sentry/node": "^6.16.1",
+    "@sentry/integrations": "^6.16.1",
+    "azure-arm-resource": "^7.4.0",
+    "azure-pipelines-task-lib": "^3.1.10",
+    "ms-rest-azure": "^3.0.1",
+    "xregexp": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^11.10.4",
-    "@types/q": "^1.5.1"
+    "@types/q": "^1.5.5"
   }
 }
