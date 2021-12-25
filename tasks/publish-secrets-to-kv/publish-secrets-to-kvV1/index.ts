@@ -1,6 +1,7 @@
 import * as tl from "azure-pipelines-task-lib";
 import * as msrestazure from "ms-rest-azure";
-import * as keyvault from "azure-keyvault";
+import * as keyvault from "@azure/keyvault-secrets";
+import * as identity from "@azure/identity";
 import * as sentry from "@sentry/node";
 import { RewriteFrames } from "@sentry/integrations";
 import * as xreg from "xregexp";
@@ -62,39 +63,30 @@ async function main() {
         let keyVaultUrl = `https://${keyVaultName}.${azureKeyVaultDnsSuffix}`;
 
         console.info(`Connecting to key vault '${keyVaultUrl}'`);
-        let kvClient = new keyvault.KeyVaultClient(credentials);
+        let kvClient = new keyvault.SecretClient(keyVaultUrl, credentials);
         console.info("Done");
 
         let namesInput = tl.getInput(`secrets`);
 
+        let promises: Array<Promise<keyvault.KeyVaultSecret>> = [];
         xreg.forEach(
             namesInput,
             xreg("^\\s*(?<key>.*?)\\s*(=\\s*(?<value>.*))?$", "gm"),
-            async (match) => {
+            (match) => {
                 let secretName = (<any>match).key;
                 let secretValue = (<any>match).value;
                 console.info(`Writing secret '${secretName}' to key vault`);
-                await kvClient.setSecret(
-                    keyVaultUrl,
-                    secretName,
-                    secretValue,
-                    { tags: tagsList, contentType: contentType },
-                    (err, secretBundle) => {
-                        if (err) {
-                            console.warn(
-                                `Exception while publishing secret for '${secretName}'`,
-                                err
-                            );
-                            tl.warning(`Error while writing '${secretName}'`);
-                        } else {
-                            console.info(
-                                `Successfully set the secret for '${secretName}'`
-                            );
-                        }
-                    }
+                var opts: keyvault.SetSecretOptions = {
+                    contentType: contentType,
+                    tags: tagsList,
+                };
+
+                promises.push(
+                    kvClient.setSecret(secretName, secretValue, opts)
                 );
             }
         );
+        let results = await Promise.all(promises);
         console.info("All done");
     } catch (error) {
         console.error("Error occurred", error);
@@ -104,7 +96,7 @@ async function main() {
     }
 }
 
-function getCredentials(connectedService: string): ServiceClientCredentials {
+function getCredentials(connectedService: string): identity.TokenCredential {
     let authScheme = tl.getEndpointAuthorizationScheme(connectedService, true);
     let subscriptionId = tl.getEndpointDataParameter(
         connectedService,
@@ -129,13 +121,13 @@ function getCredentials(connectedService: string): ServiceClientCredentials {
 
     if (authScheme === "ManagedServiceIdentity") {
         console.log("Logging in using MSIVmTokenCredentials");
-        return new msrestazure.MSIVmTokenCredentials();
+        return new identity.ManagedIdentityCredential();
     }
     console.log(
         `Logging in using ApplicationTokenCredentials, authScheme is '${authScheme}'`
     );
 
-    let credentials = new msrestazure.ApplicationTokenCredentials(
+    let credentials = new identity.ClientSecretCredential(
         clientId,
         tenantId,
         clientSecret
