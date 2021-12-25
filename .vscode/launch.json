@@ -10,7 +10,7 @@
             "name": "Debug updatetasks.js",
             "program": "${workspaceRoot}/scripts/updatetasks.js",
             "args": [
-                "--beta"  
+                "--beta"
             ],
             "cwd": "${workspaceRoot}"
         },
@@ -35,7 +35,7 @@
             ]
         },
         {
-            "name": "Lock Unlock",
+            "name": "V1 - Lock Unlock",
             "type": "node",
             "request": "launch",
             "program": "${workspaceFolder}/tasks/azure-lock-unlock/azure-lock-unlockV1/index.ts",
@@ -47,11 +47,34 @@
             "runtimeArgs": [
                 "--nolazy"
             ],
-            "envFile": "${workspaceFolder}/.env",
+            "envFile": "${workspaceFolder}/tasks/azure-lock-unlock/.env",
             "console": "integratedTerminal",
             "sourceMaps": true,
             "outFiles": [
                 "${workspaceFolder}/tasks/azure-lock-unlock/azure-lock-unlockV1/index.js"
+            ]
+        },
+        {
+            "name": "V2 - Lock Unlock",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/tasks/azure-lock-unlock/azure-lock-unlockV2/index.ts",
+            "stopOnEntry": false,
+            "args": [],
+            "cwd": "${workspaceFolder}/tasks/azure-lock-unlock/",
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "envFile": "${workspaceFolder}/tasks/azure-lock-unlock/.env",
+            "console": "integratedTerminal",
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceFolder}/tasks/azure-lock-unlock/azure-lock-unlockV2/index.js"
+            ],
+            "skipFiles": [
+                "<node_internals>/**"
             ]
         },
         {
