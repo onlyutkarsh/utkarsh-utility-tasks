@@ -1,0 +1,37 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: ci
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+
+      - name: get cached dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      
+      - name: install dependencies recursively
+        run: npm run init
+      
+      - name: compile and lint
+        run: npm run compile:prod -- --project ${{ github.workspace }}
+      
+      - name: copy files to dist
+        run: npm run copy
+      
+      - name: publish dist folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: ${{ github.workspace }}/dist/
